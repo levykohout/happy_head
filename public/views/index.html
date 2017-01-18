@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript" src="vendors/angular.min.js"></script>
+    <script type="text/javascript" src="vendors/angular-route.js"></script>
+    <script type="text/javascript" src="scripts/module.js"></script>
+    <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
+    <script type="text/javascript" src="scripts/login.controller.js"></script>
     <!-- <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css"> -->
     <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
@@ -12,16 +16,11 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <title>HappyHead App</title>
+    <base href="/" />
   </head>
-  <body ng-app='myApp'>
-    <div ng-controller='MainController'>
-      <div class ='container'>
-      <div class='jumbotron'>Happy Head</div>
-      <div id="profilePicture"></div>
-      </div>
-      <div id="uptime"></div>
+  <body ng-app='happyHeadApp'>
 
-        </div>
-    </div>
+    <ng-view id="main-color">
+    </ng-view>
   </body>
 </html>

@@ -1,7 +1,16 @@
-body {
+/*body {
     background-color: #32c6cb;
-}
+}*/
 
 h5 {
   color:
+}
+
+img {
+background-image: url(<circle cx="100" cy="100" r="90" fill="blue" />)
+}
+
+body {
+background-color: #3BB8BE!important;
+
 }

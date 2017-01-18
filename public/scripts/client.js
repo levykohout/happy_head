@@ -1,6 +1,4 @@
-var myApp = angular.module('myApp', []);
-
-myApp.controller('MainController', ['$scope', '$http', function($scope, $http){
+angular.module('happyHeadApp').controller('MainController', ['$scope', '$http', function($scope, $http){
   function start() {
           var deviceID = "2a0022000947353138383138",
               tempSpan = document.getElementById("uptime"),
