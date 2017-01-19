@@ -2,13 +2,41 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+const auth = require('./auth/setup');
+const passport = require('passport');
+const session = require('express-session');
 
 var twilioCreds = require('./server/smsconfig.json');
 var path = require('path');
 
+const sessionConfig = {
+  secret: 'super secret key goes here', // TODO this should be read from ENV
+  key: 'user',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 30 * 60 * 1000,
+    secure: false
+  }
+};
+auth.setup();
+app.use(session(sessionConfig));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(ensureAuthenticated);
+
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use( express.static( "public" ));
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.sendStatus(401);
+  }
+}
 
 
 //database connection
