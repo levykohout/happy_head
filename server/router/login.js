@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
-const User = require('../server/models/userSchema');
+const User = require('../../server/models/userSchema');
 
 router.post('/', passport.authenticate('local'), function(req, res) {
     res.sendStatus(200);

@@ -2,7 +2,7 @@ angular.module('happyHeadApp').controller('MainController', ['$scope', '$http', 
   function start() {
           var deviceID = "2a0022000947353138383138",
               tempSpan = document.getElementById("uptime"),
-              accessToken = "bde3b78aa80ae0789693bd5f91af1119ddeb4e25",
+              accessToken = "bf4c7b2288275febcc216c53b2e555a6f481d82b",
               eventSource = new EventSource("https://api.particle.io/v1/devices/" + deviceID + "/events/?access_token=" + accessToken),
               lowCount = 0,
               mediumCount = 0,

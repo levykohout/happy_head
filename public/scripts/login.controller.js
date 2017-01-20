@@ -12,22 +12,22 @@ function LoginController($http, $location) {
     //
     // //logged in email to display
     login.loggedInEmail = function() {
-        $http.get('/users').then(function(response) {
+        $http.get('/info').then(function(response) {
 
         }, function(error) {
             $location.path('/login');
         });
     };
 
-    login.loggedInEmail();
-    
+    // login.loggedInEmail();
+
     login.login = function() {
         console.log('logging in');
         $http.post('/login', {
             email: login.email,
             password: login.password,
         }).then(function() {
-            controller.loggedInEmail();
+            login.loggedInEmail();
             // adminservice.normalLoggedin();
             // if (adminservice.loggedInDate == undefined || adminservice.loggedInDate == '' || adminservice.loggedInDate == null) {
             //     $location.path('/userUpdate');
@@ -39,7 +39,7 @@ function LoginController($http, $location) {
         });
     };
     //
-    controller.forgotPasswordEmail = function(email) {
+    login.forgotPasswordEmail = function(email) {
         var body = {
             email: email
         };

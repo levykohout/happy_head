@@ -5,9 +5,12 @@ var bodyParser = require('body-parser');
 const auth = require('./auth/setup');
 const passport = require('passport');
 const session = require('express-session');
+const connection = require('./db/connection');
 
 var twilioCreds = require('./server/smsconfig.json');
 var path = require('path');
+
+const login = require('./server/router/login');
 
 const sessionConfig = {
   secret: 'super secret key goes here', // TODO this should be read from ENV
@@ -19,16 +22,19 @@ const sessionConfig = {
     secure: false
   }
 };
-auth.setup();
+connection.connect();
+// auth.setup();
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(ensureAuthenticated);
+
 
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use( express.static( "public" ));
+
+app.use('/login', login);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -77,10 +83,18 @@ app.post('/twilio', function(req,res){
   });
 });
 
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, './public/views/index.html'));
+});
+
+
+app.get('/authenticated', ensureAuthenticated);
 
 app.get('/*', function(req, res){
   res.sendFile(path.join(__dirname, '/public/views/index.html'));
 });
+
+app.use(ensureAuthenticated);
 
 //server
 app.listen('3000', function(){
