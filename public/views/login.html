@@ -1,69 +1,81 @@
 
+<div id="login">
+    <div class="signin-form login-page col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+
+        <img src="/assets/brain.svg">
 
 
-    <!-- <form>
-      <input class="" type="text">
-      <input class"" type="text">
-    </form> -->
-<div id="login" >
-<div class="login-page col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 ">
-
-<form class="form-horizontal col-sm-10 col-sm-offset-1" ng-submit="login.login()">
-  <div class="text-center">
+        <div ng-hide="login.hideForm">
+            <h1>Login with your account</h1>
+            <form action="post">
+                <label>
+<i class="fa fa-envelope-o"></i> <input class="form-control"  type="email" ng-model="login.email" name="email" placeholder="Email ">
+</label>
 
 
-  <img src="/assets/brain.svg">
+                <label>
+          <i class="fa fa-lock"></i> <input class="form-control"  type="password" ng-model="login.password" name="password" placeholder="Password">
+      </label>
 
-  <div>
-    <h3>Happy Head</h3>
-  <!-- <div class="form-group row"> -->
-    <!-- <label class="control-label col-sm-offset-1 col-sm-2 col-lg-offset-2 col-lg-2">Email:</label> -->
-    <div class="form-group row">
-      <input class="form-control" type="text" ng-model="login.email" autocomplete="on">
-    </div>
-  <!-- </div> -->
-   <!-- <div class="row"> -->
-    <!-- <label class="control-label col-sm-offset-1 col-sm-2 col-lg-offset-2 col-lg-2">Password:</label> -->
-    <div class="form-group row">
-      <input class="form-control" type="password" ng-model="login.password">
-    </div>
-  <!-- </div> -->
-  <div class="form-group row">
-    <button type="submit" class="btn btn-default btn-block" >Login</button>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-offset-3 col-sm-7 col-lg-offset-4 col-md-6 col-lg-5">
-    <p>Forgot password? <a href="#forgotPassword" data-toggle="modal" > Click here</a></p>
-  </div>
-  </div>
-</form>
-</div>
-</div>
-
-
-<div id="forgotPassword" class="modal fade">
-    <div id="login" class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title text-center">Verify Email Information</h4>
+                <button type="submit" class="primary-btn">Login</button>
+            </form>
+            <div class="form-group row">
+                <div class="col-sm-offset-3 col-sm-7 col-lg-offset-4 col-md-6 col-lg-5">
+                    <p>Forgot password? <a href="#forgotPassword" data-toggle="modal"> Click here</a> or if you are not registered yet <a href ng-click="login.showRegistration()">Click here</a></p>
+                </div>
             </div>
-            <div class="modal-body modal-background-color text-center">
+          </div>
+
+
+
+            <!-- start of registration form -->
+            <div class="form-group row" ng-show="login.showForm">
+                <h1>Create your free account</h1>
+                <form action="post">
+                    <label>
+                  <i class="fa fa-user"></i>
+                  <input class="form-control" type="test" name="email" placeholder="Name">
+                </label>
+                    <label>
+                    <i class="fa fa-envelope-o"></i> <input class="form-control"  type="email" name="email" placeholder="Email">
+                </label>
+                    <label>
+                    <i class="fa fa-lock"></i> <input class="form-control"  type="password" name="password" placeholder="Password">
+                </label>
+                    <label>
+                    <i class="fa fa-lock"></i> <input class="form-control"  type="password" name="confirm-password" placeholder="Confirm password">
+                </label>
+
+                    <button type="submit" class="primary-btn"> SIGN IN</button>
+                </form>
+            </div>
+
+        </div>
+        <!--END promo -->
+    </div>
+
+
+    <div id="forgotPassword" class="modal fade">
+         <div id="login" class="modal-dialog">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title text-center">Verify Email Information</h4>
+                </div>
+                <div class="modal-body modal-background-color text-center">
 
                     <div class="form-group row">
                         <label class="control-label col-xs-offset-1 col-xs-2">Email:</label>
                         <div class="col-xs-7">
-                            <input class="form-control" type="text" ng-model="login.email" autocomplete="on" >
+                            <input class="form-control" type="text" ng-model="login.email" autocomplete="on">
                         </div>
                     </div>
 
 
-            </div>
-            <div class="modal-footer">
-              <button ng-click="login.forgotPasswordEmail(login.email)" type="submit" class="btn btn-default pull-right" data-dismiss="modal">Send</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="login.forgotPasswordEmail(login.email)" type="submit" class="btn btn-default pull-right" data-dismiss="modal">Send</button>
+                </div>
 
-        </div>
-    </div>
-</div>
-</div>
+             </div>
+         </div>

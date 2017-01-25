@@ -1,7 +1,7 @@
 angular.module('happyHeadApp')
     .controller('LoginController', LoginController);
 
-function LoginController($http, $location) {
+function LoginController($http, $location,$scope) {
     console.log('LoginController loaded');
     var login = this;
 
@@ -50,6 +50,15 @@ function LoginController($http, $location) {
         });
     };
 
+login.showForm = false;
+login.showRegistration = function(){
+  console.log('inside show resgistration');
+login.showForm = true;
+
+console.log(login.showForm);
+login.hideForm= true;
+$scope.apply();
+};
 
 
 }
