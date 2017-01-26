@@ -7,7 +7,7 @@
 
         <div ng-hide="login.hideForm">
             <h1>Login with your account</h1>
-            <form action="post">
+            <form >
                 <label>
 <i class="fa fa-envelope-o"></i> <input class="form-control"  type="email" ng-model="login.email" name="email" placeholder="Email ">
 </label>
@@ -31,22 +31,22 @@
             <!-- start of registration form -->
             <div class="form-group row" ng-show="login.showForm">
                 <h1>Create your free account</h1>
-                <form action="post">
+                <form >
                     <label>
                   <i class="fa fa-user"></i>
-                  <input class="form-control" type="test" name="email" placeholder="Name">
+                  <input class="form-control" type="test" name="email" placeholder="Name" ng-model="login.registerName">
                 </label>
                     <label>
-                    <i class="fa fa-envelope-o"></i> <input class="form-control"  type="email" name="email" placeholder="Email">
+                    <i class="fa fa-envelope-o"></i> <input class="form-control"  type="email" name="email" placeholder="Email" ng-model="login.registerEmail">
                 </label>
                     <label>
-                    <i class="fa fa-lock"></i> <input class="form-control"  type="password" name="password" placeholder="Password">
+                    <i class="fa fa-lock"></i> <input class="form-control"  type="password" name="password" placeholder="Password" ng-model="login.createPassword">
                 </label>
                     <label>
-                    <i class="fa fa-lock"></i> <input class="form-control"  type="password" name="confirm-password" placeholder="Confirm password">
+                    <i class="fa fa-lock"></i> <input class="form-control"  type="password" name="confirm-password" placeholder="Confirm password" ng-model="login.passwordConfirm">
                 </label>
 
-                    <button type="submit" class="primary-btn"> SIGN IN</button>
+                    <button type="submit" class="primary-btn" ng-click="login.registerNewUser()"> Register </button>
                 </form>
             </div>
 

@@ -57,8 +57,30 @@ login.showForm = true;
 
 console.log(login.showForm);
 login.hideForm= true;
-$scope.apply();
 };
+
+login.registerNewUser = function() {
+console.log('Register new user!');
+        var data = {
+            name: login.registerName,
+            email: login.registerEmail,
+            password: login.createPassword,
+            confirmPassword: login.passwordConfirm
+        };
+
+        $http.post('/login/register', data).then(function(response) {
+            console.log('successfully added a new user', response);
+
+            // empty form
+            login.registerName = '';
+            login.registerEmail = '';
+            login.createPassword = '';
+            login.passwordConfirm = '';
+
+        });
+
+    }; //End of addNewUser
+
 
 
 }

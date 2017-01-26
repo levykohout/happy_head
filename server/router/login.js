@@ -52,6 +52,18 @@ router.put('/update/:id', function(req, res) {
 });
 
 
+router.post('/register', function(req, res) {
+  console.log(req.body);
+
+  //check if username and password already exist
+
+  //if no duplicate, add to database
+
+  //send response to client
+
+});
+
+
 router.post('/mail', function(req, res) {
     var email = req.body.email;
     var randomPassword = Math.random().toString(36).slice(2, 10);
