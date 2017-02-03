@@ -82,3 +82,17 @@ label{
   cursor:pointer;
 
 }
+
+/*top div*/
+.top-div {
+  height:200px;
+  width:100%;
+  background:#2d3e4f;
+}
+
+/*lower divs*/
+.lower-div {
+  height:500px;
+  width:100%;
+  background:white;
+}
