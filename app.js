@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
@@ -7,10 +8,13 @@ const passport = require('passport');
 const session = require('express-session');
 const connection = require('./db/connection');
 
-var twilioCreds = require('./server/smsconfig.json');
+
 var path = require('path');
 
-const login = require('./server/router/login');
+const login = require('./router/login');
+const user = require('./router/users');
+const hits = require('./router/hits');
+const faq = require('./router/faq');
 
 const sessionConfig = {
   secret: 'super secret key goes here', // TODO this should be read from ENV
@@ -23,7 +27,7 @@ const sessionConfig = {
   }
 };
 connection.connect();
-// auth.setup();
+auth.setup();
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -35,6 +39,9 @@ app.use(bodyParser.json());
 app.use( express.static( "public" ));
 
 app.use('/login', login);
+app.use('/user', user);
+app.use('/hits',hits);
+app.use('/faq',faq);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -59,8 +66,10 @@ function ensureAuthenticated(req, res, next) {
 
 //twilio outbound
 // Twilio Credentials
-var accountSid = twilioCreds.accountSid;
-var authToken = twilioCreds.authToken;
+var accountSid = process.env.TWILIO_ACCOUNT_SID;
+var authToken = process.env.TWILIO_ACCOUNT_AUTHTOKEN;
+var twilioNumber=process.env.TWILIO_PHONE_NUMBER;
+var myNumber=process.env.MY_NUMBER;
 
 //require the Twilio module and create a REST client
 var client = require('twilio')(accountSid, authToken);
@@ -75,11 +84,11 @@ app.post('/twilio', function(req,res){
     url='https://projects.invisionapp.com/share/6NA1B95RV#/screens';
   }
   client.messages.create({
-      to: "+16122033602",
-      from: "+16122497350",
+      to: myNumber,
+      from: twilioNumber,
       body: numberOfHits  +" hit(s). To view data click here: "+ url
   }, function(err, message) {
-      res.send(message.sid);
+      // res.send(message.sid);
   });
 });
 

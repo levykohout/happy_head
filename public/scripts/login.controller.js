@@ -1,25 +1,15 @@
 angular.module('happyHeadApp')
     .controller('LoginController', LoginController);
 
-function LoginController($http, $location,$scope) {
+function LoginController($http, $location,$scope, loginService) {
     console.log('LoginController loaded');
     var login = this;
 
+login.loginService=loginService;
+
 
     //whenever controller is loaded, will check to see if user which/if any user is logged in
-    // adminservice.loggedin();
-
-    //
-    // //logged in email to display
-    login.loggedInEmail = function() {
-        $http.get('/info').then(function(response) {
-
-        }, function(error) {
-            $location.path('/login');
-        });
-    };
-
-    // login.loggedInEmail();
+login.loginService.loggedInEmail();
 
     login.login = function() {
         console.log('logging in');
@@ -27,17 +17,27 @@ function LoginController($http, $location,$scope) {
             email: login.email,
             password: login.password,
         }).then(function() {
-            login.loggedInEmail();
-            // adminservice.normalLoggedin();
-            // if (adminservice.loggedInDate == undefined || adminservice.loggedInDate == '' || adminservice.loggedInDate == null) {
-            //     $location.path('/userUpdate');
-            // } else {
-            //     $location.path('/resources');
-            // }
+
+        $location.path('/home');
+
         }, function(error) {
             console.log('error loggin in', error);
+            $location.path('/login');
         });
     };
+
+
+    login.logout = function() {
+
+    $http.get('/login/logout')
+    .then(function(){
+    login.loginService.name = "";
+
+      $location.path('/login');
+    }, function(error) {
+      console.log('error logging out', error);
+    });
+  };
     //
     login.forgotPasswordEmail = function(email) {
         var body = {
@@ -61,14 +61,14 @@ login.hideForm= true;
 
 login.registerNewUser = function() {
 console.log('Register new user!');
+
         var data = {
             name: login.registerName,
             email: login.registerEmail,
             password: login.createPassword,
-            confirmPassword: login.passwordConfirm
         };
 
-        $http.post('/login/register', data).then(function(response) {
+        $http.post('/user/register', data).then(function(response) {
             console.log('successfully added a new user', response);
 
             // empty form

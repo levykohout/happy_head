@@ -1,1 +1,1 @@
-angular.module('happyHeadApp', ['ngRoute']);
+angular.module('happyHeadApp', ['ngRoute','nvd3']);

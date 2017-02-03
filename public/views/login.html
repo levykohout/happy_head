@@ -6,7 +6,7 @@
 
         <div ng-hide="login.hideForm">
             <h1>Login with your account</h1>
-            <form>
+            <form ng-submit="login.login()">
                 <label>
                   <i class="fa fa-envelope-o"></i> <input class="form-control"  type="email" ng-model="login.email" name="email" placeholder="Email ">
                 </label>

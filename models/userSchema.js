@@ -4,13 +4,10 @@ const SALT_ROUNDS = 10;
 require('mongoose-type-email');
 
 const userSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
+  name: String,
   email: {type: mongoose.SchemaTypes.Email, required:true},
   password: String,
-  loggedInDate: Date,
-  accessLevel: String,
-}, {collection: 'admin'});
+}, {collection: 'users'});
 
 // make sure that everytime we save an admin/modify password, the password gets hashed
 userSchema.pre('save', function(done){

@@ -1,24 +1,22 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = require('../server/models/userSchema');
+var User = require('../models/userSchema');
 
-router.post('/', function(req, res) {
+router.post('/register', function(req, res) {
     console.log('registering new user');
 
     const user = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
-        accessLevel: req.body.accessLevel
+        password: req.body.password
     });
 
     user.save().then(function(user) {
         res.send(user);
 
     }).catch(function(err) {
-        console.log('Error in /admin', err);
+        console.log('Error in /register', err);
         res.sendStatus(500);
     });
 });
@@ -31,7 +29,7 @@ router.get('/', function(req, res) {
         res.send(people);
 
     }).catch(function(err) {
-        console.log('Error in /register', err);
+        console.log('Error in getting users', err);
         res.sendStatus(500);
     });
 });
@@ -42,8 +40,7 @@ router.get('/adminSchema', function(req, res) {
 
     if (req.isAuthenticated()) {
         var user = {
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
+          name: req.user.name,
             email: req.user.email,
             accessLevel: req.user.accessLevel,
             loggedInDate: req.user.loggedInDate,

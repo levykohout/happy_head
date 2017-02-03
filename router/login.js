@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
-const User = require('../../server/models/userSchema');
+const User = require('../models/userSchema');
 
 router.post('/', passport.authenticate('local'), function(req, res) {
     res.sendStatus(200);
@@ -11,12 +11,8 @@ router.post('/', passport.authenticate('local'), function(req, res) {
 router.get('/info', function(req, res) {
     if (req.isAuthenticated()) {
         var user = {
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
-            email: req.user.email,
-            accessLevel: req.user.accessLevel,
-            loggedInDate: req.user.loggedInDate,
-            _id: req.user._id
+          name: req.user.name,
+          email: req.user.email,
         };
         res.send(user);
         console.log(user);
@@ -26,8 +22,13 @@ router.get('/info', function(req, res) {
     }
 });
 
+router.get('/logout', function (req, res){
+  req.logout()
+  res.redirect('/');
+})
+
 router.put('/update/:id', function(req, res) {
-    console.log('updating admin user');
+    console.log('updating user');
     var id = req.params.id;
     console.log(id);
 
@@ -52,16 +53,6 @@ router.put('/update/:id', function(req, res) {
 });
 
 
-router.post('/register', function(req, res) {
-  console.log(req.body);
-
-  //check if username and password already exist
-
-  //if no duplicate, add to database
-
-  //send response to client
-
-});
 
 
 router.post('/mail', function(req, res) {

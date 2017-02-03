@@ -92,6 +92,7 @@ label{
 
 /*lower divs*/
 .lower-div {
+  margin-top:0px;
   height:500px;
   width:100%;
   background:white;

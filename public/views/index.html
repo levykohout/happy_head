@@ -5,13 +5,22 @@
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css"/>
     <script type="text/javascript" src="vendors/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.5/angular-nvd3.min.js"></script>
+
+
+
     <script type="text/javascript" src="vendors/angular-route.js"></script>
     <script type="text/javascript" src="scripts/module.js"></script>
     <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
+      <script type="text/javascript" src="scripts/login.service.js"></script>
     <script type="text/javascript" src="scripts/login.controller.js"></script>
+
     <script type="text/javascript" src="scripts/home.controller.js"></script>
     <script type="text/javascript" src="scripts/docInfo.controller.js"></script>
     <script type="text/javascript" src="scripts/faq.controller.js"></script>
@@ -45,7 +54,7 @@
                  <span class="glyphicon glyphicon-menu-hamburger"></span> MENU
                   </button>
 
-                    <div class="collapse navbar-collapse" id="myNavbar">
+                    <div class="collapse navbar-collapse" id="myNavbar" ng-controller="LoginController as login">
                         <ol class="nav navbar-nav navbar-left">
                             <li class="nav-item"><a href="/profile">Child Profile</a></li>
                             <li class="nav-item"><a href="/docInfo">Doctor Information</a></li>
@@ -55,9 +64,9 @@
 
                         </ol>
                         <ol class="nav navbar-nav navbar-right">
-                            <li class="nav-item"><a id="email">User Name</a></li>
+                            <li class="nav-item"><a>{{login.loginService.name}}</a></li>
                             <li class="nav-item"><a href="/login">Log In</a></li>
-                            <li class="nav-item"><a href="/logout">Log Out</a></li>
+                            <li class="nav-item"><a href ng-click="login.logout()">Log Out</a></li>
                         </ol>
                     </div>
                 </div>
