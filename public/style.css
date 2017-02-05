@@ -74,20 +74,20 @@ label{
 
 .primary-btn {
   margin: 0 auto;
-  background: #2d3e4f;
+  background: rgb(212, 249, 113);
   border: 1px solid #fff;
   height: 54px;
   width: 450px;
-  color: #fff;
+  color: rgb(34, 169, 181);
   cursor:pointer;
-
+  font-weight:bold;
 }
 
 /*top div*/
 .top-div {
-  height:200px;
+  height:300px;
   width:100%;
-  background:#2d3e4f;
+  background-color: rgb(130, 219, 221);
 }
 
 /*lower divs*/
@@ -96,4 +96,56 @@ label{
   height:500px;
   width:100%;
   background:white;
+}
+
+
+/*alternative*/
+text {
+           font: 12px sans-serif;
+       }
+       svg {
+           display: block;
+       }
+       #chart, svg {
+           margin: 5px;
+           padding: 5px;
+           height: 90%;
+           width: 100%;
+       }
+
+       .nvd3 line.nv-guideline { // Hide the guideline because it is ugly. Ideally, we would make the guideline as wide as the bars and semi-transparent, instead of hiding it.
+           display: none;
+           stroke-width: 0.0;
+       }
+
+       .nvd3 .nv-bars rect { // fix the hover guideline to be snappy
+         transition: fill-opacity 0ms linear;
+         -moz-transition: fill-opacity 0ms linear;
+         -webkit-transition: fill-opacity 0ms linear;
+       }
+
+       .nvd3 .nv-x .nv-axis .x-axis-tick-mark {
+           stroke: #000; // black tick marks
+       }
+
+       .nvd3 .nv-y .nv-axis .tick.zero line {
+           stroke: #000; // black line for the x axis
+       }
+
+       .nv-bars rect {
+         width: 30px;
+       }
+
+#menu-button {
+
+  border: #3BB8BE;
+  background: #3BB8BE;
+
+}
+#menu-button:focus { outline: none; }
+
+span.glyphicon-menu-hamburger {
+  font-size: 2em;
+  background: #3BB8BE;
+
 }

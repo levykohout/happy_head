@@ -21,5 +21,17 @@ router.post('/', function(req, res) {
     });
 });
 
+router.get('/', function(req, res){
+  console.log('getting hits data');
+  Hits.find({}).then(function(hits) {
+      res.send(hits);
+
+  }).catch(function(err) {
+      console.log('Error in getting hits data', err);
+      res.sendStatus(500);
+  });
+
+});
+
 
 module.exports = router;

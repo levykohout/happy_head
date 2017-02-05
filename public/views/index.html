@@ -48,25 +48,24 @@
 
                 <h2 class="text-center">Happy Head</h2>
             </header>
-            <nav class="navbar navbar-default custom-nav">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                 <span class="glyphicon glyphicon-menu-hamburger"></span> MENU
-                  </button>
 
-                    <div class="collapse navbar-collapse" id="myNavbar" ng-controller="LoginController as login">
-                        <ol class="nav navbar-nav navbar-left">
-                            <li class="nav-item"><a href="/profile">Child Profile</a></li>
-                            <li class="nav-item"><a href="/docInfo">Doctor Information</a></li>
-                            <li class="nav-item"><a href="/messages">Messages</a></li>
-                            <li class="nav-item"><a href="/faq">FAQs</a></li>
-                            <li class="nav-item"><a href="/symptoms">Symptoms</a></li>
+            <nav class=" navbar custom-nav">
+              <div class="">
+                  <button type="button" class="pull-right" data-toggle="collapse" data-target="#myNavbar"
+                  aria-expanded="false" aria-controls="myNavbar">
+               <span class="glyphicon glyphicon-menu-hamburger" id="menu-button"></span>
+                </button>
 
-                        </ol>
-                        <ol class="nav navbar-nav navbar-right">
+                 <div class="collapse" id="myNavbar" ng-controller="LoginController as login">
+                        <ol class="nav navbar-left nav-stacked">
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/profile">Child Profile</a></li>
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/docInfo">Doctor Information</a></li>
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/messages">Messages</a></li>
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/faq">FAQs</a></li>
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/symptoms">Symptoms</a></li>
                             <li class="nav-item"><a>{{login.loginService.name}}</a></li>
-                            <li class="nav-item"><a href="/login">Log In</a></li>
-                            <li class="nav-item"><a href ng-click="login.logout()">Log Out</a></li>
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/login">Log In</a></li>
+                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href ng-click="login.logout()">Log Out</a></li>
                         </ol>
                     </div>
                 </div>

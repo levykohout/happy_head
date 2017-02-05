@@ -1,13 +1,40 @@
 <div class="container">
-  <div class="top-div">
-  </div>
-  <div class="lower-div">
+    <div class="top-div">
+        <h2>Alicia's History</h2>
+        <div id="chart">
+            <svg></svg>
+        </div>
+    </div>
+    <div class="lower-div">
+        <div>
+            <h3>Activity</h3>
 
-    <!-- create database to pull data from -->
-    <!-- then sort by date range and day -->
+            <hr>
+        </div>
+        <br>
+        <div>
+            <h3>Hits</h3>
+            <hr>
+            <p>{{ profile.lowHitDataCount }} Low Hits </p>
+            <p>{{ profile.mediumHitDataCount}} Medium Hits </p>
+            <p>{{ profile.highHitDataCount}} High Hits </p>
+        </div>
 
-<nvd3 options="options" data="data"></nvd3>
 
-  </div>
+
+    </div>
+    <!-- <div ng-repeat="hit in profile.hitsData">
+    <p>{{hit.timeStamp}}</p>
+
+  </div> -->
+
+
+
+
+
+
+
+
+
 
 </div>
