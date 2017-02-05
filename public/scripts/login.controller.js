@@ -81,6 +81,27 @@ console.log('Register new user!');
 
     }; //End of addNewUser
 
+  //menu navigation animation
+  /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+login.openNav= function () {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.height = "100%";
+    document.getElementById("mainColor").style.marginLeft = "250px";
+
+
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+login.closeNav= function () {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.height = "0";
+    document.getElementById("mainColor").style.marginLeft = "0";
+
+
+
+}
+
+
 
 
 }

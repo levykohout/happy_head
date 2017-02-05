@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
@@ -41,40 +42,34 @@
 </head>
 
 <body ng-app='happyHeadApp'>
-
-    <div class="container">
         <div class="row col-xs-12">
-            <header>
 
-                <h2 class="text-center">Happy Head</h2>
-            </header>
-
-            <nav class=" navbar custom-nav">
-              <div class="">
-                  <button type="button" class="pull-right" data-toggle="collapse" data-target="#myNavbar"
-                  aria-expanded="false" aria-controls="myNavbar">
-               <span class="glyphicon glyphicon-menu-hamburger" id="menu-button"></span>
-                </button>
-
-                 <div class="collapse" id="myNavbar" ng-controller="LoginController as login">
-                        <ol class="nav navbar-left nav-stacked">
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/profile">Child Profile</a></li>
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/docInfo">Doctor Information</a></li>
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/messages">Messages</a></li>
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/faq">FAQs</a></li>
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/symptoms">Symptoms</a></li>
-                            <li class="nav-item"><a>{{login.loginService.name}}</a></li>
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href="/login">Log In</a></li>
-                            <li class="nav-item" data-toggle="collapse" data-target="#myNavbar"><a href ng-click="login.logout()">Log Out</a></li>
+              <div ng-controller="LoginController as login">
+                 <div id="mySidenav" class="sidenav"  >
+                   <a href="javascript:void(0)" class="closebtn" ng-click="login.closeNav()">&times;</a>
+                        <ol >
+                            <li ><a href="/profile">Child Profile</a></li>
+                            <li ><a href="/docInfo">Doctor Information</a></li>
+                            <li ><a href="/messages">Messages</a></li>
+                            <li ><a href="/faq">FAQs</a></li>
+                            <li ><a href="/symptoms">Symptoms</a></li>
+                            <li ><a>{{login.loginService.name}}</a></li>
+                            <li ><a href="/login">Log In</a></li>
+                            <li ><a href ng-click="login.logout()">Log Out</a></li>
                         </ol>
                     </div>
-                </div>
-            </nav>
+                    <button id="menu-button" type="button" class="pull-right">
+                 <span style="font-size:30px;cursor:pointer" ng-click="login.openNav()">&#9776;</span>
+                  </button>
 
-            <ng-view id="main-color">
+                </div>
+
+
+<div id="mainColor">
+            <ng-view >
             </ng-view>
+          </div>
         </div>
-    </div>
 </body>
 
 </html>
