@@ -93,7 +93,7 @@ function ProfileController($http, $location, $scope, $route) {
         availableWidth,
 
         //get date range divided by number of days or hour or minutes to make number of ticks
-        numTicks = 50,
+        numTicks = 100,
         xScale = d3.time.scale();
 
 
@@ -114,10 +114,6 @@ function ProfileController($http, $location, $scope, $route) {
     var dataLength=profile.data[0].values.length;
     var lastDate=profile.data[0].values[dataLength-1].x; //set end Date
 
-// firstDate=firstDate.getMonth();
-//     lastDate=lastDate.getMonth();
-//     console.log(firstDate);
-//     console.log(lastDate);
     chart.xDomain([firstDate, lastDate]);
 
 

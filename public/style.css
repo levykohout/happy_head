@@ -24,7 +24,7 @@ h1, h2 {
   padding-left:25px !important;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, a {
   margin:0px !important;
   padding:15px !important;
 
@@ -147,6 +147,7 @@ text {
   border: none;
    padding: 10px;
    background: none;
+   color:white;
 }
 
 
@@ -213,4 +214,16 @@ body {
 .container-fluid{
   margin:0px !important;
   padding:0px !important;
+}
+
+#back-button {
+  margin-top:50px;
+  margin-left:50px;
+  border: none;
+   padding: 10px;
+   background: none;
+}
+
+.glyphicon {
+  color:white !important;
 }

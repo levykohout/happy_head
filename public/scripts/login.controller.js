@@ -101,6 +101,9 @@ login.closeNav= function () {
 
 }
 
+login.doTheBack = function() {
+  window.history.back();
+};
 
 
 

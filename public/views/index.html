@@ -51,18 +51,19 @@
                  <div id="mySidenav" class="sidenav"  >
                    <a href="javascript:void(0)" class="closebtn" ng-click="login.closeNav()">&times;</a>
                         <ol >
-                            <li ><a href="/profile">Child Profile</a></li>
-                            <li ><a href="/docInfo">Doctor Information</a></li>
-                            <li ><a href="/messages">Messages</a></li>
-                            <li ><a href="/faq">FAQs</a></li>
-                            <li ><a href="/symptoms">Symptoms</a></li>
-                            <li ><a>{{login.loginService.name}}</a></li>
-                            <li ><a href="/login">Log In</a></li>
-                            <li ><a href ng-click="login.logout()">Log Out</a></li>
+                            <li ng-click="login.closeNav()" ><a href="/profile">Child Profile</a></li>
+                            <li ng-click="login.closeNav()"><a href="/docInfo">Doctor Information</a></li>
+                            <li ng-click="login.closeNav()"><a href="/messages">Messages</a></li>
+                            <li ng-click="login.closeNav()"><a href="/faq">FAQs</a></li>
+                            <li ng-click="login.closeNav()"><a href="/symptoms">Symptoms</a></li>
+                            <li ng-click="login.closeNav()"><a>{{login.loginService.name}}</a></li>
+                            <li ng-click="login.closeNav()"><a href="/login">Log In</a></li>
+                            <li ng-click="login.closeNav()"><a href ng-click="login.logout()">Log Out</a></li>
                         </ol>
                     </div>
+                    <div class="nav-header pull-left" id="back-button" ng-click="login.doTheBack()"><span class="glyphicon glyphicon-chevron-left glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></div>
                     <button id="menu-button" type="button" class="pull-right">
-                 <span style="font-size:30px;cursor:pointer" ng-click="login.openNav()">&#9776;</span>
+                 <span style="font-size:30px;cursor:pointer color:white" ng-click="login.openNav()">&#9776;</span>
                   </button>
 
                 </div>
