@@ -11,7 +11,7 @@ angular.module('happyHeadApp').config(function($routeProvider, $locationProvider
 
   $routeProvider.when('/home', {
     templateUrl: 'views/home.html',
-    controller: 'HomeController as home'
+    controller: 'ProfileController as profile'
   }).when('/login', {
     templateUrl: 'views/login.html',
     controller: 'LoginController as login'
