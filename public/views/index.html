@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css" />
     <script type="text/javascript" src="vendors/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="scripts/module.js"></script>
     <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
-      <script type="text/javascript" src="scripts/login.service.js"></script>
+    <script type="text/javascript" src="scripts/login.service.js"></script>
     <script type="text/javascript" src="scripts/login.controller.js"></script>
 
     <script type="text/javascript" src="scripts/home.controller.js"></script>
@@ -45,35 +45,39 @@
 </head>
 
 <body ng-app='happyHeadApp'>
-        <div class="row col-xs-12">
+    <div class="row col-xs-12">
 
-              <div ng-controller="LoginController as login">
-                 <div id="mySidenav" class="sidenav"  >
-                   <a href="javascript:void(0)" class="closebtn" ng-click="login.closeNav()">&times;</a>
-                        <ol >
-                            <li ng-click="login.closeNav()" ><a href="/profile">Child Profile</a></li>
-                            <li ng-click="login.closeNav()"><a href="/docInfo">Doctor Information</a></li>
-                            <li ng-click="login.closeNav()"><a href="/messages">Messages</a></li>
-                            <li ng-click="login.closeNav()"><a href="/faq">FAQs</a></li>
-                            <li ng-click="login.closeNav()"><a href="/symptoms">Symptoms</a></li>
-                            <li ng-click="login.closeNav()"><a>{{login.loginService.name}}</a></li>
-                            <li ng-click="login.closeNav()"><a href="/login">Log In</a></li>
-                            <li ng-click="login.closeNav()"><a href ng-click="login.logout()">Log Out</a></li>
-                        </ol>
-                    </div>
-                    <div class="nav-header pull-left" id="back-button" ng-click="login.doTheBack()"><span class="glyphicon glyphicon-chevron-left glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></div>
-                    <button id="menu-button" type="button" class="pull-right">
-                 <span style="font-size:30px;cursor:pointer color:white" ng-click="login.openNav()">&#9776;</span>
-                  </button>
-
-                </div>
+        <div ng-controller="LoginController as login">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" ng-click="login.closeNav()">&times;</a>
+                <ol>
+                    <li ng-click="login.closeNav()"><a href="/profile">Child Profile</a></li>
+                    <li ng-click="login.closeNav()"><a href="/docInfo">Doctor Information</a></li>
+                    <li ng-click="login.closeNav()"><a href="/messages">Messages</a></li>
+                    <li ng-click="login.closeNav()"><a href="/faq">FAQs</a></li>
+                    <li ng-click="login.closeNav()"><a href="/symptoms">Symptoms</a></li>
+                    <li ng-click="login.closeNav()"><a>{{login.loginService.name}}</a></li>
+                    <li ng-click="login.closeNav()"><a href="/login">Log In</a></li>
+                    <li ng-click="login.closeNav()"><a href ng-click="login.logout()">Log Out</a></li>
+                </ol>
+            </div>
 
 
-<div id="mainColor">
-            <ng-view >
-            </ng-view>
-          </div>
+
+            <div id="mainColor">
+                <div class="nav-header pull-left" id="back-button" ng-click="login.doTheBack()"><span class="glyphicon glyphicon-chevron-left glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></div>
+
+                <button id="menu-button" type="button" class="pull-right">
+                  <span style="font-size:30px;cursor:pointer color:white" ng-click="login.openNav()">&#9776;</span>
+                </button>
+
+
+
+                <ng-view>
+                </ng-view>
+            </div>
         </div>
+    </div>
 </body>
 
 </html>

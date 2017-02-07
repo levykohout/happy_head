@@ -141,14 +141,6 @@ text {
          background-color:red !important ;
        }
 
-#menu-button {
-  margin-top:50px;
-  margin-right:50px;
-  border: none;
-   padding: 10px;
-   background: none;
-   color:white;
-}
 
 
 /* The side navigation menu */
@@ -216,6 +208,15 @@ body {
   padding:0px !important;
 }
 
+#menu-button {
+  margin-top:50px;
+  margin-right:50px;
+  border: none;
+   padding: 10px;
+   background: none;
+   color:white;
+}
+
 #back-button {
   margin-top:50px;
   margin-left:50px;
@@ -224,6 +225,11 @@ body {
    background: none;
 }
 
-.glyphicon {
+.glyphicon-chevron-left {
   color:white !important;
+}
+
+.glyphicon-chevron-down{
+    margin-right:50px;
+    color: rgb(130, 219, 221);
 }
