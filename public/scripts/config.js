@@ -32,6 +32,6 @@ angular.module('happyHeadApp').config(function($routeProvider, $locationProvider
     controller: 'SymptomsController as symptom'
   }).otherwise({
     templateUrl: 'views/home.html',
-    controller: 'HomeController as home'
+    controller: 'ProfileController as profile'
   });
 });
